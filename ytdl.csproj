@@ -11,9 +11,6 @@
     <PackageDescription>Youtube downloader</PackageDescription>
 	
 	<ApplicationIcon>res/icon.ico</ApplicationIcon>
-<ApplicationIcon>res/icon.ico</ApplicationIcon>
-<ApplicationIcon>C:\Users\estebanGH\Documents\ICONS\csharp.ico</ApplicationIcon>
-<ApplicationIcon>res/icon.ico</ApplicationIcon>
 <!--@propertyGr-->
 	
 	<PublishSingleFile>true</PublishSingleFile>
