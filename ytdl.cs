@@ -15,11 +15,15 @@ partial class YTDownloader{
 	static FormatString promptVid = build(("Enter video url", prompt), (" > ", CharFormat.ResetAll));
 	static FormatString promptPls = build(("Enter playlist url", prompt), (" > ", CharFormat.ResetAll));
 	
+	static string ytdlpPath;
+	
 	static int Main(string[] args){
 		if(!OperatingSystem.IsWindows()){
 			ch.WriteLine("Only Windows is supported", error);
 			return 2;
 		}
+		
+        ytdlpPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "/yt-dlp.exe";
 		
 		//Also handles NO_COLOR
 		FormatString.usesColors = !Console.IsOutputRedirected && FormatString.usesColors;
@@ -39,8 +43,8 @@ partial class YTDownloader{
 			return 3;
 		}
 		
-		if(!File.Exists("yt-dlp.exe")){
-			downloadFile("https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe", "yt-dlp.exe");
+		if(!File.Exists(ytdlpPath)){
+			downloadFile("https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe", ytdlpPath);
 		}
 		
 		FormatString promptStr = build(("\nEnter instruction", prompt), (" > ", CharFormat.ResetAll));
@@ -126,8 +130,8 @@ partial class YTDownloader{
 		}
 		
 		ProcessStartInfo psi = new ProcessStartInfo{
-			FileName = "yt-dlp.exe",
-			Arguments = "-x --audio-format mp3 --audio-quality 0 -o \"out/%(title)s.%(ext)s\" --no-mtime --no-playlist \"" + videoUrl + "\"",
+			FileName = ytdlpPath,
+			Arguments = "-x --audio-format mp3 --audio-quality 0 -o \"" + Environment.CurrentDirectory + "/out/%(title)s.%(ext)s\" --no-mtime --no-playlist \"" + videoUrl + "\"",
 			
 			//UseShellExecute = false,
 			CreateNoWindow = true,
@@ -150,14 +154,14 @@ partial class YTDownloader{
 	}
 	
 	static void pls(string videoUrl, bool wait = false){
-		if(!File.Exists("yt-dlp.exe")){
+		if(!File.Exists(ytdlpPath)){
 			ch.WriteLine("yt-dlp.exe is needed.", error);
 			return;
 		}
 		
 		var psi = new ProcessStartInfo{
-			FileName = "yt-dlp.exe",
-			Arguments = "-x --audio-format mp3 --audio-quality 0 -o \"out/%(title)s.%(ext)s\" --no-mtime --yes-playlist -i --user-agent \"Mozilla/5.0 (Windows NT 10.0; Win64; x64)\" \"" + videoUrl + "\"",
+			FileName = ytdlpPath,
+			Arguments = "-x --audio-format mp3 --audio-quality 0 -o \"" + Environment.CurrentDirectory + "/out/%(title)s.%(ext)s\" --no-mtime --yes-playlist -i --user-agent \"Mozilla/5.0 (Windows NT 10.0; Win64; x64)\" \"" + videoUrl + "\"",
 			
 			//UseShellExecute = false,
 			CreateNoWindow = true,
