@@ -4,7 +4,7 @@ Easy asynchronous youtube MP3 downloader
 
 ## Usage
 This application acts as a wrapper over [yt-dlp](https://github.com/yt-dlp/yt-dlp). It lets you download the audio of multiple videos and playlists at the same time in a MP3 format.  
-The output MP3 files are generated on a folder on the executing path of the executable called `out`.  
+The output MP3 files are generated on a folder on the executing path of the application called `out`.  
 Their names are the same that they had on youtube.  
 If you open the application normally, you will have access to an interactive console. If you pass CL args, you will only execute one operation.  
 **Note**: [yt-dlp](https://github.com/yt-dlp/yt-dlp) needs [ffmpeg](https://ffmpeg.org/) to work. You may have to install it as well.  
