@@ -23,7 +23,9 @@ partial class YTDownloader{
 			return 2;
 		}
 		
-        ytdlpPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "/yt-dlp.exe";
+        ytdlpPath = System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName) + "/yt-dlp.exe";
+		
+		Console.WriteLine(ytdlpPath);
 		
 		//Also handles NO_COLOR
 		FormatString.usesColors = !Console.IsOutputRedirected && FormatString.usesColors;
