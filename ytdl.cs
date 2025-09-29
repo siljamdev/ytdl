@@ -25,8 +25,6 @@ partial class YTDownloader{
 		
         ytdlpPath = System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName) + "/yt-dlp.exe";
 		
-		Console.WriteLine(ytdlpPath);
-		
 		//Also handles NO_COLOR
 		FormatString.usesColors = !Console.IsOutputRedirected && FormatString.usesColors;
 		
@@ -94,7 +92,7 @@ partial class YTDownloader{
 				
 				case "UPDATE":
 				case "U":
-					downloadFile("https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe", "yt-dlp.exe");
+					downloadFile("https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe", ytdlpPath);
 				break;
 				
 				case "HELP":
@@ -126,7 +124,7 @@ partial class YTDownloader{
 	}
 	
 	static void vid(string videoUrl, bool wait = false){
-		if(!File.Exists("yt-dlp.exe")){
+		if(!File.Exists(ytdlpPath)){
 			ch.WriteLine("yt-dlp.exe is needed.", error);
 			return;
 		}
