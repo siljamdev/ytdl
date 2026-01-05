@@ -1,9 +1,9 @@
 # Youtube Downloader
 <img src="res/icon.png" width="200"/>
-Easy asynchronous youtube MP3 downloader
+Easy asynchronous youtube MP4/MP3 downloader
 
 ## Usage
-This application acts as a wrapper over [yt-dlp](https://github.com/yt-dlp/yt-dlp). It lets you download the audio of multiple videos and playlists at the same time in a MP3 format.  
+This application acts as a wrapper over [yt-dlp](https://github.com/yt-dlp/yt-dlp). It lets you download multiple videos and playlists at the same time in a MP4/MP3 format.  
 The output MP3 files are generated on a folder on the executing path of the application called `out`.  
 Their names are the same that they had on youtube.  
 If you open the application normally, you will have access to an interactive console. If you pass CL args, you will only execute one operation.  
@@ -13,11 +13,11 @@ If you open the application normally, you will have access to an interactive con
 Pass it the `-h` flag to get CLI help.  
 Only one operation may be executed at a time.  
 Example:
-```ytdl -v https://www.youtube.com/watch?v=z9MovmqnDFA```  
-Downloads the audio of a video
+```ytdl -v https://www.youtube.com/watch?v=z-SUDfFCJ2s```  
+Downloads a video
 
 ## Installation
-This application is only available for Windows, because of the way it downloads the `yt-dlp` executable.  
+This application is available for Windows, Linux and MacOS.
 Download an executable from the [Releases](https://github.com/siljamdev/ytdl/releases/latest).
 
 ## License
