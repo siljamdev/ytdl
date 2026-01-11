@@ -30,8 +30,6 @@ partial class YTDownloader{
 		
 		initPool();
 		
-		Directory.CreateDirectory("out");
-		
 		if(args.Length > 0){
 			return cli(args);
 		}
@@ -154,7 +152,7 @@ partial class YTDownloader{
 		
 		// Start the process
 		runProcess(ytdlpPath,
-			"-f \"bv*[vcodec^=avc1]+ba[acodec^=mp4a]/b\" --merge-output-format mp4 -o \"" + Environment.CurrentDirectory + "/out/%(title)s.%(ext)s\" --no-mtime --no-playlist \"" + videoUrl + "\"",
+			"-f \"bv*[vcodec^=avc1]+ba[acodec^=mp4a]/b\" --merge-output-format mp4 -o \"" + Environment.CurrentDirectory + "/%(title)s.%(ext)s\" --no-mtime --no-playlist \"" + videoUrl + "\"",
 			ind, f, wait);
 	}
 	
@@ -175,7 +173,7 @@ partial class YTDownloader{
 		
 		// Start the process
 		runProcess(ytdlpPath,
-			"-x --audio-format mp3 --audio-quality 0 -o \"" + Environment.CurrentDirectory + "/out/%(title)s.%(ext)s\" --no-mtime --no-playlist \"" + videoUrl + "\"",
+			"-x --audio-format mp3 --audio-quality 0 -o \"" + Environment.CurrentDirectory + "/%(title)s.%(ext)s\" --no-mtime --no-playlist \"" + videoUrl + "\"",
 			ind, f, wait);
 	}
 	
@@ -196,7 +194,7 @@ partial class YTDownloader{
 		
 		// Start the process
 		runProcess(ytdlpPath,
-			"-f \"bv*[vcodec^=avc1]+ba[acodec^=mp4a]/b\" --merge-output-format mp4 -o \"" + Environment.CurrentDirectory + "/out/%(title)s.%(ext)s\" --no-mtime --yes-playlist -i --user-agent \"Mozilla/5.0 (Windows NT 10.0; Win64; x64)\" \"" + videoUrl + "\"",
+			"-f \"bv*[vcodec^=avc1]+ba[acodec^=mp4a]/b\" --merge-output-format mp4 -o \"" + Environment.CurrentDirectory + "/%(title)s.%(ext)s\" --no-mtime --yes-playlist -i --user-agent \"Mozilla/5.0 (Windows NT 10.0; Win64; x64)\" \"" + videoUrl + "\"",
 			ind, f, wait);
 	}
 	
@@ -217,13 +215,13 @@ partial class YTDownloader{
 		
 		// Start the process
 		runProcess(ytdlpPath,
-			"-x --audio-format mp3 --audio-quality 0 -o \"" + Environment.CurrentDirectory + "/out/%(title)s.%(ext)s\" --no-mtime --yes-playlist -i --user-agent \"Mozilla/5.0 (Windows NT 10.0; Win64; x64)\" \"" + videoUrl + "\"",
+			"-x --audio-format mp3 --audio-quality 0 -o \"" + Environment.CurrentDirectory + "/%(title)s.%(ext)s\" --no-mtime --yes-playlist -i --user-agent \"Mozilla/5.0 (Windows NT 10.0; Win64; x64)\" \"" + videoUrl + "\"",
 			ind, f, wait);
 	}
 	
 	static void help(){
 		ch.WriteLine("Youtube Downloader help", info);
-		ch.WriteLine("This application creates a folder in the executing directory called 'out', that is where all downloaded videos will go");
+		ch.WriteLine("This application downloads videos into the current directory");
 		ch.WriteLine("mp4/mp3 format is always used, and it needs yt-dlp to work");
 		ch.WriteLine("");
 		ch.WriteLine("Instructions:", info);

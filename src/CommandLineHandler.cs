@@ -82,7 +82,7 @@ partial class YTDownloader{
 	
 	static void cliHelp(){
 		Console.WriteLine(new FormatString("Youtube Downloader CLI help", info));
-		Console.WriteLine("This application creates a folder in the executing directory called 'out', that is where all downloaded videos will go");
+		Console.WriteLine("This application downloads videos into the current directory");
 		Console.WriteLine("mp4/mp3 format is always used, and it needs yt-dlp to work");
 		Console.WriteLine("");
 		Console.WriteLine(new FormatString("Flags", info));
