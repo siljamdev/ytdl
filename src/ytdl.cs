@@ -45,7 +45,7 @@ partial class YTDownloader{
 			downloadYtdlp();
 		}
 		
-		FormatString promptStr = new FormatString(("Enter instruction", prompt), (" > ", CharFormat.ResetAll));
+		FormatString promptStr = new FormatString((Environment.NewLine + "Enter instruction", prompt), (" > ", CharFormat.ResetAll));
 		
 		ch.WriteLine("Welcome to Youtube Downloader");
 		
